@@ -12,7 +12,6 @@ int main() {
     int userGuessAsInt, correctGuess;
     std::string userGuessAsString;
 
-    // generate a number between 0 to 9
     std::random_device rseed;
     std::mt19937 rgen(rseed());
     std::uniform_int_distribution <int> idist(0, 9);
@@ -23,19 +22,21 @@ int main() {
     // get the guess from the user as a string
     std::cin >> userGuessAsString;
 
-    // check if the guess is correct or wrong
-    if (userGuessAsInt == correctGuess) {
-        std::cout << "You are correct!";
-    } else {
-        std::cout << "You are wrong! The answer is = ";
-        std::cout << correctGuess << std::endl;
-    }
-
 try {
     // convert the user's guess to an int
     userGuessAsInt = std::stoi(userGuessAsString);
 } catch (std::invalid_argument) {
     // The user did not enter an integer.
     std::cout << userGuessAsString << " is not an integer.\n";
+    std::cout << "Thanks for playing" << std::endl;
 }
+    // check if the guess is correct
+    if (userGuessAsInt == correctGuess) {
+        std::cout << "You are correct!";
+        std::cout << "Thanks for playing" << std::endl;
+    } else {
+        std::cout << "You are wrong! The answer is = ";
+        std::cout << correctGuess << std::endl;
+        std::cout << "Thanks for playing" << std::endl;
+    }
 }
