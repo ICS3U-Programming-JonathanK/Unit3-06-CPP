@@ -12,6 +12,7 @@ int main() {
     int userGuessAsInt, correctGuess;
     std::string userGuessAsString;
 
+    // generate a number between 0 to 9
     std::random_device rseed;
     std::mt19937 rgen(rseed());
     std::uniform_int_distribution <int> idist(0, 9);
@@ -22,7 +23,7 @@ int main() {
     // get the guess from the user as a string
     std::cin >> userGuessAsString;
 
-    // check if the guess is correct
+    // check if the guess is correct or wrong
     if (userGuessAsInt == correctGuess) {
         std::cout << "You are correct!";
     } else {
